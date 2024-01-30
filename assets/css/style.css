@@ -1,0 +1,98 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.with-background {
+  background-image: url('https://as2.ftcdn.net/v2/jpg/05/92/34/33/1000_F_592343335_zZthEGuBhNzvkAZswCm4pfm3iBEwj5Pz.jpg');
+  background-size: 45%;
+  background-position: center;
+  color: white;
+
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.header p {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+}
+
+.header h1 {
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-info {
+  color: #000;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  width: 100%;
+}
+
+.services-section,
+.about-section {
+  height: 1px;
+  width: 100%;
+  margin: 70px 0;
+  background: rgb(197, 195, 195);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.services-section::before {
+  content: "EVENTS";
+  margin-top: -4px;
+  color: #435356;
+  background: #E3F2FD;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 33px;
+  font-family: auto;
+}
+
+.about-section::before {
+  content: "About Us";
+  margin-top: -4px;
+  color: #435356;
+  background: #E3F2FD;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 33px;
+  font-family: auto;
+}
+
+footer p {
+  margin: auto;
+  text-align: center;
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+img,
+svg {
+  vertical-align: middle;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+
+main .card {
+  border-radius: 5px;
+}
