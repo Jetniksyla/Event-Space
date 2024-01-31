@@ -32,6 +32,7 @@ html {
 /* Styling for paragraph inside the header */
 .header p {
   /* display: none; /* Display property commented out, can be used if needed */
+  box-shadow: 0px 0px 20px -4px;
   color: silver;
   text-align: center;
   width: 80%;
@@ -39,6 +40,8 @@ html {
   padding: 30px;
   font-size: larger;
   font-family: math;
+  margin-bottom: 31px;
+  border-radius: 5px;
 }
 
 .header h1 {
@@ -55,13 +58,13 @@ html {
 /* Styling for the main content section */
 
 main {
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
   /* display: none !important */
 }
 
 main {
   display: flex;
-  gap: 30px;
+  gap: 35px;
   flex-wrap: wrap;
   justify-content: center;
   margin-block-start: 40px;
@@ -94,6 +97,7 @@ main .card {
   background: #d5dbe1;
   border: none;
   border-radius: 15px;
+  box-shadow: 0px 0px 30px -5px;
 }
 
 /* Styling for the search button */
@@ -136,6 +140,7 @@ main .card {
   background-color: #0dcaf0;
   border-color: #0dcaf0;
   width: 100%;
+  margin-top: 13px;
 }
 
 /* Styling for the events and about sections */
@@ -144,7 +149,7 @@ main .card {
 .about-section {
   height: 1px;
   width: 100%;
-  margin: 60px 0;
+  margin: 70px 0;
   background: rgb(197, 195, 195);
   display: flex;
   align-items: center;
@@ -155,7 +160,7 @@ main .card {
 /* Styling for content labels in events and about sections */
 
 .events-section::before {
-  content: "EVENTS";
+  content: "EVENT  SPACE";
   margin-top: -4px;
   color: #435356;
   background: white;
@@ -163,6 +168,7 @@ main .card {
   border-radius: 5px;
   font-size: 33px;
   font-family: auto;
+  box-shadow: 0px -20px 32px -25px;
 }
 
 .about-section::before {
@@ -174,6 +180,7 @@ main .card {
   border-radius: 5px;
   font-size: 33px;
   font-family: auto;
+  box-shadow: 0px 20px 32px -25px;
 }
 
 /* Styling for footer section */
@@ -204,16 +211,18 @@ svg {
   width: 400px;
   margin: auto;
   padding: 40px;
+  box-shadow: 0px 0px 31px -9px;
 }
 
 main .card {
   border-radius: 5px;
+  box-shadow: 0px 0px 31px -9px;
 }
 
-/* Styling for "Show More" button when hidden */
 
 .displayBlock {
   display: none !important;
+  /* Styling for "Show More" button when hidden */
 }
 
 /* Styling for "Show More" button when displayed */
@@ -238,4 +247,24 @@ main .card {
   background-color: #151e15;
   box-shadow: rgb(0 0 0 / 46%) 0px 0px 8px 5px;
   transition: 0.3s;
+}
+
+/* Scrollbar styling for the card img description */
+.card .flex-column {
+  max-height: 80px;
+  overflow-y: auto;
+  padding-bottom: 5px;
+}
+
+.card .flex-column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card .flex-column::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.card .flex-column::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }
