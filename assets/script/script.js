@@ -48,7 +48,7 @@ function getApi() {
 
       // Update each card with performer details
       cards.forEach((card, index) => {
-        const userName = document.createElement("h3");
+        const userName = document.createElement("h5");
         const userUrl = document.createElement("p");
 
         const flexColumn = card.querySelector(".flex-column");
@@ -56,7 +56,7 @@ function getApi() {
 
         // Iterate through performers and create elements
         data.events[index].performers.forEach((performer) => {
-          const performerElement = document.createElement("h3");
+          const performerElement = document.createElement("h5");
           performerElement.textContent = performer.name;
 
           // Append performer element to the card
