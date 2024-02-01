@@ -13,6 +13,9 @@ html {
 
 }
 
+.input-group {
+  width: 40px;
+}
 .header {
   display: flex;
   justify-content: center;
