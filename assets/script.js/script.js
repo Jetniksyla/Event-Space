@@ -5,7 +5,7 @@ const eventId = "Mzk2NjkwMTZ8MTcwNjU3NDExNS40OTM3MDc";
 let city = ""
 
 function searchEventsByCity() {
-    let eventCityUrl = 'https://api.seatgeek.com/2/events?venue.city=' + city + '&taxonomies.name=concert=&client_id=' + eventId
+    const eventCityUrl = 'https://api.seatgeek.com/2/events?venue.city=' + city + '&taxonomies.name=concert=&client_id=' + eventId
     fetch(eventCityUrl)
         .then(function (response) {
             return response.json()
@@ -20,8 +20,8 @@ function searchEventsByCity() {
         )
 }
 
-let button = document.getElementById('search-btn')
-let searchedCity = document.getElementById('search-input')
+const button = document.getElementById('search-btn')
+const searchedCity = document.getElementById('search-input')
 button.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -47,7 +47,11 @@ function displayEvents(city) {
             // Update each card with performer details
             cards.forEach((card, index) => {
                 const userName = document.createElement("h5");
-                const userUrl = document.createElement("p");
+                const address = document.createElement("p");
+                const date = document.createElement("p")
+                const dateFormat = dayjs().format('D MMMM')
+                console.log(dateFormat)
+            
 
                 const flexColumn = card.querySelector(".flex-column");
                 flexColumn.innerHTML = "";
@@ -62,12 +66,15 @@ function displayEvents(city) {
                 });
 
                 userName.textContent =
-                    "Performer: " + data.events[index].performers[0].name;
-                userUrl.textContent = "Event ID: " + data.events[index].id;
+                    "Venue: " + data.events[index].venue.name;
+                address.textContent = data.events[index].venue.address;
+                date.textContent = data.events[index].datetime_local
+                date.textContent = dateFormat
 
                 // Append user details to the card
+                flexColumn.append(date);
                 flexColumn.append(userName);
-                flexColumn.append(userUrl);
+                flexColumn.append(address);
 
                 // Update existing image element with performer image
                 const performerImageURL = data.events[index].performers[0].image;
