@@ -1,3 +1,5 @@
+/* Resetting default styles and setting up a basic styling for the page */
+
 html {
   margin: 0;
   padding: 0;
@@ -5,46 +7,151 @@ html {
   font-family: sans-serif;
 }
 
+/* Styling for elements with the class "with-background" */
+
 .with-background {
-  background-image: url('https://as2.ftcdn.net/v2/jpg/05/92/34/33/1000_F_592343335_zZthEGuBhNzvkAZswCm4pfm3iBEwj5Pz.jpg');
-  background-size: 45%;
+  background-image: url('https://images.pexels.com/photos/3319726/pexels-photo-3319726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: 100%;
   background-position: center;
   color: white;
-
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Ensure the background covers the entire element */
 }
 
+/* Styling for header section */
+
 .header {
+  position: relative;
   display: flex;
   justify-content: center;
   text-align: center;
+  padding-top: 60px;
 }
 
+/* Styling for paragraph inside the header */
 .header p {
+  /* display: none; /* Display property commented out, can be used if needed */
+  box-shadow: 0px 0px 20px -4px;
+  color: silver;
   text-align: center;
   width: 80%;
   margin: auto;
   padding: 30px;
+  font-size: larger;
+  font-family: math;
+  margin-bottom: 31px;
+  border-radius: 5px;
 }
 
 .header h1 {
-  padding: 20px;
+  padding: 74px 0 30px 0;
+}
+
+.header h1 span {
+  color: red;
+  font-size: 54px;
+  text-decoration: underline;
+  box-shadow: 5px 5px 19px 4px;
+}
+
+h1 spam {
+  text-decoration: underline;
+    box-shadow: 5px 13px 5px 3px #fff;
+}
+
+
+/* Styling for the main content section */
+
+main {
+  /* padding-bottom: 60px; */
+  /* display: none !important */
 }
 
 main {
   display: flex;
-  gap: 20px;
+  gap: 35px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-block-start: 40px;
 }
+
+/* Styling for card elements */
+
+main .card {
+  border-radius: 5px;
+  width: 400px;
+  /* height: 600px; */
+}
+
+/* Styling for the search container */
+
+#search-container {
+  display: flex;
+  justify-content: center;
+  margin-right: 101px;
+}
+
+/* Styling for the search input */
+
+#search-input {
+  position: relative;
+  font-size: larger;
+  padding: 23px;
+  width: 580px;
+  margin-right: -115px;
+  background: #d5dbe1;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px -5px;
+}
+
+/* Styling for the search button */
+
+#search-btn {
+
+  position: absolute;
+  margin-top: 10px;
+  font-size: larger;
+  padding: 13px 20px;
+  background-color: #1d314e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+/* Styling for hover effect on search button */
+
+#search-btn:hover {
+  box-shadow: rgb(0 0 0 / 46%) 0px 0px 8px 5px;
+  transition: 0.3s;
+  background-color: #151e15;
+}
+
+/* Styling for card body */
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Styling for the "Learn more" button */
 
 .btn-info {
   color: #000;
   background-color: #0dcaf0;
   border-color: #0dcaf0;
   width: 100%;
+  margin-top: 13px;
 }
 
-.services-section,
+/* Styling for the events and about sections */
+
+.events-section,
 .about-section {
   height: 1px;
   width: 100%;
@@ -56,43 +163,114 @@ main {
 
 }
 
-.services-section::before {
-  content: "EVENTS";
+/* Styling for content labels in events and about sections */
+
+.events-section::before {
+  content: "EVENT  SPACE";
   margin-top: -4px;
   color: #435356;
-  background: #E3F2FD;
-  padding: 10px 30px;
+  background: white;
+  padding: 10px 40px;
   border-radius: 5px;
   font-size: 33px;
   font-family: auto;
+  box-shadow: 0px -20px 32px -25px;
 }
 
 .about-section::before {
   content: "About Us";
   margin-top: -4px;
   color: #435356;
-  background: #E3F2FD;
-  padding: 10px 30px;
+  background: white;
+  padding: 10px 40px;
   border-radius: 5px;
   font-size: 33px;
   font-family: auto;
+  box-shadow: 0px 20px 32px -25px;
 }
 
-footer p {
+/* Styling for footer section */
+
+footer {
+  bottom: 0;
   margin: auto;
   text-align: center;
-  width: 70%;
-  padding-bottom: 30px;
+  padding: 20px;
 }
+
+/* Styling for paragraph inside the footer */
+
+footer p {
+  font-size: 18px;
+  width: 55%;
+  margin: auto;
+  margin-bottom: 20px;
+  font-family: math;
+}
+
+/* Styling for images and SVGs */
 
 img,
 svg {
   vertical-align: middle;
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   margin: auto;
+  padding: 40px;
+  box-shadow: 0px 0px 31px -9px;
 }
 
 main .card {
   border-radius: 5px;
+  box-shadow: 0px 0px 31px -9px;
+}
+
+
+.displayBlock {
+  display: none !important;
+  /* Styling for "Show More" button when hidden */
+}
+
+/* Styling for "Show More" button when displayed */
+
+.displayBlock {
+  margin-top: 15px;
+  display: block;
+  margin: auto;
+  padding: 15px 25px;
+  background-color: #1d314e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Styling for hover effect on "Show More" button */
+
+.displayBlock:hover {
+  background-color: #151e15;
+  box-shadow: rgb(0 0 0 / 46%) 0px 0px 8px 5px;
+  transition: 0.3s;
+}
+
+.card .flex-column {
+  max-height: 80px;
+  overflow-y: auto;
+  padding-bottom: 5px;
+}
+
+.card .flex-column::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar track */
+}
+
+.card .flex-column::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+  width: 4px; /* Adjust the width of the scrollbar thumb */
+}
+
+.card .flex-column::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }
