@@ -14,7 +14,7 @@ function searchEventsByCity() {
                 console.error("No events found in " + city);
                 return;
             }
-            
+
         }
 
         )
@@ -28,6 +28,7 @@ button.addEventListener("click", function (event) {
     city = searchedCity.value;
     searchEventsByCity()
     displayEvents(city)
+
 
 
 });
@@ -51,7 +52,7 @@ function displayEvents(city) {
                 const date = document.createElement("p")
                 const dateFormat = dayjs().format('D MMMM')
                 console.log(dateFormat)
-            
+
 
                 const flexColumn = card.querySelector(".flex-column");
                 flexColumn.innerHTML = "";
@@ -66,15 +67,16 @@ function displayEvents(city) {
                 });
 
                 userName.textContent =
-                    "Venue: " + data.events[index].venue.name;
+                    data.events[index].venue.name;
                 address.textContent = data.events[index].venue.address;
                 date.textContent = data.events[index].datetime_local
                 date.textContent = dateFormat
 
                 // Append user details to the card
-                flexColumn.append(date);
+
                 flexColumn.append(userName);
                 flexColumn.append(address);
+                flexColumn.append(date);
 
                 // Update existing image element with performer image
                 const performerImageURL = data.events[index].performers[0].image;
@@ -90,6 +92,32 @@ function displayEvents(city) {
         });
 
 }
+
+
+
+const showMoreBtn = document.querySelectorAll(".btn")
+
+showMoreBtn.forEach((button) => {
+    button.addEventListener("click", seeMore);
+});
+
+function seeMore() {
+    cards.forEach((card) => {
+        card.style.display = "none";
+        const seeMoreUrl = 'https://api.seatgeek.com/2/events?venue.city=' + city + '&taxonomies.name=concert=&client_id=' + eventId
+        fetch(seeMoreUrl)
+            .then(function (response) {
+                return response.json()
+            }).then(function (sameDataForNow) {
+// more info goes here
+                
+            }
+
+            )
+        
+    });
+}
+
 
 
 

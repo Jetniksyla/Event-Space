@@ -19,14 +19,8 @@ html {
   /* Ensure the background covers the entire element */
 }
 
-<<<<<<< HEAD
-.input-group {
-  width: 40px;
-}
-=======
 /* Styling for header section */
 
->>>>>>> dbb94c78750653a21921bd647565d17f8b802327
 .header {
   position: relative;
   display: flex;
