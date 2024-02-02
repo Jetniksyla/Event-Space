@@ -129,61 +129,50 @@ function displayEvents(events) {
 const showMoreBtn = document.querySelectorAll(".btn")
 
 showMoreBtn.forEach((button) => {
-    button.addEventListener("click", seeMore);
+  button.addEventListener("click", seeMore);
 });
 
 let artist = "rick ross" || ""
 
 function seeMore() {
- 
-  
-    cards.forEach((card, index) => {
-        card.style.display = "none";
-        let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=true"
 
-fetch(wikiUrl)
-    .then(function (response) {
+
+  cards.forEach((card) => {
+    card.style.display = "none";
+    card.style.justifyContent = "center"
+    let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=true"
+
+    fetch(wikiUrl)
+      .then(function (response) {
         return response.json()
-    }).then(function (wikiData) {
+      }).then(function (wikiData) {
         console.log(wikiData)
 
-                const secondCard = document.querySelector('.second-card')
-                secondCard.style.display = "flex" 
-                console.log(secondCard)
-                
-                const infoImage = document.querySelector('.card-img-top') 
-                const cardTitle = document.querySelector('.card-title') 
-                const cardText = document.querySelector('.description') 
-                infoImage.src = wikiData.thumbnail.source
-                cardTitle.textContent = wikiData.title
-                cardText.textContent = wikiData.extract
+        const secondCard = document.querySelector('.second-card')
+        secondCard.style.display = "block"
+        console.log(secondCard)
 
-                
-                
-            }
+        const infoImage = document.querySelector('.card-img-top')
+        const cardTitle = document.querySelector('.card-title')
+        const cardText = document.querySelector('.description')
+        infoImage.src = wikiData.thumbnail.source
+        cardTitle.textContent = wikiData.title
+        cardText.textContent = wikiData.extract
 
 
-            )
 
-    }
-    );
-    
-    
+      }
+
+
+      )
+
   }
+  );
 
 
+}
 
-let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=true"
 
-fetch(wikiUrl)
-    .then(function (response) {
-        return response.json()
-    }).then(function (wikiData) {
-        console.log(wikiData)
-
-    }
-
-    )
 
 
 

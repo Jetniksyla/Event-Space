@@ -1,5 +1,7 @@
 /* Resetting default styles and setting up a basic styling for the page */
-
+body {
+  color: #f2f2f2;
+}
 html {
   margin: 0;
   padding: 0;
@@ -123,6 +125,8 @@ main .card {
 
 .second-card {
   display: none;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
   
 }
