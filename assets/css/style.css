@@ -121,6 +121,11 @@ main .card {
   border-radius: 15px;
 }
 
+.second-card {
+  display: none;
+  text-align: center;
+  
+}
 /* Styling for hover effect on search button */
 
 #search-btn:hover {
