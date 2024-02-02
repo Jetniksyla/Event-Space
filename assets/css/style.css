@@ -226,11 +226,6 @@ main .card {
 }
 
 
-.displayBlock {
-  display: none !important;
-  /* Styling for "Show More" button when hidden */
-}
-
 /* Styling for "Show More" button when displayed */
 
 .displayBlock {
