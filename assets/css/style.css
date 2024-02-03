@@ -123,11 +123,12 @@ main .card {
   border-radius: 15px;
 }
 
-.second-card {
+.second-page {
   display: none;
-  justify-content: center;
-  flex-direction: column;
   text-align: center;
+ 
+
+  
   
 }
 /* Styling for hover effect on search button */
