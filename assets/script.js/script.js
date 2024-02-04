@@ -91,7 +91,7 @@ function displayEvents(events) {
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
         performerElement.textContent = performer.name;
-        artist = events[index].performers[0].name
+       
         console.log(artist)
 
 
@@ -165,7 +165,7 @@ function seeMore() {
         secondPage.style.flexDirection = "row";
         
       });
-      if (wikiData.title) {
+      if (artist && wikiData.title) {
 
         infoImage.src = wikiData.thumbnail.source;
         cardTitle.textContent = wikiData.title;
