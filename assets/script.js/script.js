@@ -7,7 +7,20 @@ let totalEvents = 0; // Track the total number of events
 let artist = "";
 let prevArtist = "";
 let setUrl = []
-console.log(setUrl)
+
+function mainPage() {
+const welcomeUrl = "https://api.seatgeek.com/2/events?venue.state=NY&taxonomies.name=concert&taxonomies.name=dance_performance_tour&client_id=" + eventId;
+fetch(welcomeUrl)
+.then(function (response) {
+  return response.json();
+})
+.then(function (nyEvents) {
+  console.log(nyEvents);
+  
+}); }
+
+
+
 
 
 function searchEventsByCity(page = 1) {
@@ -87,7 +100,7 @@ showMoreButton.addEventListener("click", function () {
 
 const cards = document.querySelectorAll(".card");
 
-function displayEvents(events, setUrl) {
+function displayEvents(events) {
   // Update each card with performer details
   cards.forEach((card, index) => {
     const userName = document.createElement("h6");
@@ -151,8 +164,10 @@ seeMoreBtn.forEach((button) => {
   button.addEventListener("click", function () {
     const card = button.closest(".card");
     const artist = card.dataset.artist;
-
+    // restricts access to the card information from the main page when there is no data
+    if(artist) {
     seeMore(artist);
+  }
   });
 }); 
 
