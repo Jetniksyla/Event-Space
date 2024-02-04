@@ -4,7 +4,8 @@ const showMoreButton = document.querySelector(".displayBlock");
 let city = "";
 let currentPage = 1;
 let totalEvents = 0; // Track the total number of events
-let artist = ""
+let artist = "";
+let prevArtist = "";
 
 function searchEventsByCity(page = 1) {
   // Check if the search input has content
@@ -31,6 +32,7 @@ function searchEventsByCity(page = 1) {
         console.error("No events found in " + city);
         return;
       }
+
       // Update totalEvents
       totalEvents = locationData.meta.total;
 
@@ -66,16 +68,23 @@ button.addEventListener("click", function (event) {
 });
 
 showMoreButton.addEventListener("click", function () {
+  // Check if the current artist is the same as the previous one
+  if (artist === prevArtist) {
+    console.log("Same artist as previous research. Skipping API call.");
+    return;
+  }
+
   // Load the next page of events
   searchEventsByCity(currentPage);
+
+  // Update the previous artist to the current artist
+  prevArtist = artist;
 });
 
 const cards = document.querySelectorAll(".card");
 
 function displayEvents(events) {
   // Update each card with performer details
-
-
   cards.forEach((card, index) => {
     const userName = document.createElement("h6");
     const address = document.createElement("p");
@@ -91,15 +100,14 @@ function displayEvents(events) {
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
         performerElement.textContent = performer.name;
+        artist = performer.name;  // Update the artist variable
 
-        console.log(artist)
-
-
+        // Store the current artist in a data attribute on the card element
+        card.dataset.artist = artist;
 
         // Append performer element to the card
         flexColumn.appendChild(performerElement);
       });
-
     }
 
     // Check if events[index] and other properties exist before accessing them
@@ -122,7 +130,6 @@ function displayEvents(events) {
       events[index].performers[0] &&
       events[index].performers[0].image;
 
-
     if (performerImageURL) {
       const cardImage = card.querySelector("img");
       cardImage.src = performerImageURL;
@@ -131,19 +138,18 @@ function displayEvents(events) {
   });
 }
 
-
-
-
 const seeMoreBtn = document.querySelectorAll(".btn")
 
 seeMoreBtn.forEach((button) => {
-  button.addEventListener("click", seeMore);
-
+  button.addEventListener("click", function () {
+    const card = button.closest('.card');
+    const artist = card.dataset.artist;
+    seeMore(artist);
+  });
 });
 
-
-
-function seeMore() {
+function seeMore(artist) {
+  // Use the provided artist parameter in the Wikipedia API request
   let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=false";
   fetch(wikiUrl)
     .then(function (response) {
@@ -155,18 +161,15 @@ function seeMore() {
       const secondPage = document.querySelector('.second-page');
       const infoImage = document.querySelector('.card-img-top');
       const wikiUrl = document.querySelector('.card-link')
-      // const eventUrl = document.querySelector('.second-link-2')
-      console.log(wikiData)
-
+      
       cards.forEach((card) => {
         card.style.display = "none";
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center"
         secondPage.style.flexDirection = "row";
-
       });
-      if (artist && wikiData.title) {
 
+      if (wikiData.title ) {
         infoImage.src = wikiData.thumbnail.source;
         cardTitle.textContent = wikiData.title;
         cardText.textContent = wikiData.extract;
@@ -175,84 +178,10 @@ function seeMore() {
       } else {
         infoImage.src = "https://media.istockphoto.com/id/513231275/photo/depressed-3d-man-sitting-on-white.jpg?s=1024x1024&w=is&k=20&c=miBuE4k99U1SYY_Y-bA4es5gLdduCLAAT2VWE63CbdE="
         cardTitle.textContent = "No match found";
-        cardText.textContent = "We are sorry, we don't have more information about the artist, click the link below to see more information about event";
+        cardText.textContent = "We are sorry, we don't have more information about the artist, click the link below to see more information about the event";
         wikiUrl.textContent = ""
       }
 
     });
 
 }
-
-
-// function seeMore(event, artist) {
-//   const clickedCard = event.currentTarget.closest('.card');
-//   console.log(clickedCard)
-//   const wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=true";
-
-
-//   fetch(wikiUrl)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (wikiData) {
-//       console.log(wikiData);
-//       if (artist) {
-//         cards.forEach((card) => {
-//           card.style.display = "none";
-
-
-//         }
-//         );
-
-
-
-//         // Render the information from the clicked card on the next page
-//         const infoImage = clickedCard.querySelector('.card-img-top');
-//         const cardTitle = clickedCard.querySelector('.card-title');
-//         const cardText = clickedCard.querySelector('.description');
-
-//         infoImage.src = wikiData.thumbnail.source;
-//         cardTitle.textContent = wikiData.title;
-//         cardText.textContent = wikiData.extract;
-//       }});
-// }
-
-
-
-
-
-
-
-
-// document.querySelector('.btn-info').addEventListener('click', function() {
-//     const userName = "";
-
-//     // Call the seeMore function with the user name
-//     seeMore(userName);
-//   });
-// function seeMore(userName) {
-//     const cards = document.querySelectorAll('.your-card-class'); // Replace with your actual card class or selector
-//     cards.forEach((card) => {
-//       card.style.display = "none";
-//       const seeMoreUrl =
-//         "https://en.wikipedia.org/w/rest.php/v1/search/page?q=" +
-//         userName +
-//         "&limit=10";
-//       fetch(seeMoreUrl)
-//         .then(function (response) {
-//           return response.json();
-//         })
-//         .then(function (data) {
-//           const docArray = data.response.docs;
-//           for (let i = 0; i < docArray.length; i++) {
-//             card.style.display = "block";
-//             const listItem = document.createElement("li");
-//             listItem.textContent = docArray[i].description;
-//             card.appendChild(listItem); // Assuming card is a container where you want to append the list items
-//           }
-//         })
-//         .catch(function (error) {
-//           console.log(error);
-//         });
-//     });
-//   }

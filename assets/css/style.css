@@ -65,10 +65,6 @@ h1 spam {
 
 /* Styling for the main content section */
 
-main {
-  /* padding-bottom: 60px; */
-  /* display: none !important */
-}
 
 main {
   display: flex;
@@ -218,7 +214,7 @@ footer p {
   font-family: math;
 }
 
-/* Styling for images and SVGs 'SVG stands for Scalable Vector Graphics'*/
+/* Styling for images and SVGs 'SVG stands for Scalable Vector Graphics*/
 
 img,
 svg {
@@ -240,6 +236,12 @@ svg:hover {
   border-radius: 5px;
 }
 
+.card {
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+  /* Ensure the card does not expand when the image is enlarged */
+}
 
 main .card {
   border-radius: 5px;
