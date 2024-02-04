@@ -4,6 +4,7 @@ const showMoreButton = document.querySelector(".displayBlock");
 let city = "";
 let currentPage = 1;
 let totalEvents = 0; // Track the total number of events
+let artist = ""
 
 function searchEventsByCity(page = 1) {
   // Check if the search input has content
@@ -15,7 +16,7 @@ function searchEventsByCity(page = 1) {
   const eventCityUrl =
     "https://api.seatgeek.com/2/events?venue.city=" +
     city +
-    "&taxonomies.name=concert=&client_id=" +
+    "&taxonomies.name=concert&taxonomies.name=dance_performance_tour&client_id=" +
     eventId +
     "&page=" +
     page;
@@ -25,11 +26,11 @@ function searchEventsByCity(page = 1) {
       return response.json();
     })
     .then(function (locationData) {
+      console.log(locationData)
       if (locationData.events.length === 0) {
         console.error("No events found in " + city);
         return;
       }
-
       // Update totalEvents
       totalEvents = locationData.meta.total;
 
@@ -73,6 +74,8 @@ const cards = document.querySelectorAll(".card");
 
 function displayEvents(events) {
   // Update each card with performer details
+
+
   cards.forEach((card, index) => {
     const userName = document.createElement("h6");
     const address = document.createElement("p");
@@ -88,10 +91,15 @@ function displayEvents(events) {
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
         performerElement.textContent = performer.name;
+        artist = events[index].performers[0].name
+        console.log(artist)
+
+
 
         // Append performer element to the card
         flexColumn.appendChild(performerElement);
       });
+
     }
 
     // Check if events[index] and other properties exist before accessing them
@@ -114,6 +122,7 @@ function displayEvents(events) {
       events[index].performers[0] &&
       events[index].performers[0].image;
 
+
     if (performerImageURL) {
       const cardImage = card.querySelector("img");
       cardImage.src = performerImageURL;
@@ -125,12 +134,88 @@ function displayEvents(events) {
 
 
 
+const seeMoreBtn = document.querySelectorAll(".btn")
+
+seeMoreBtn.forEach((button) => {
+  button.addEventListener("click", seeMore);
+
+});
 
 
 
+function seeMore() {
+  let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=false";
+  fetch(wikiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (wikiData) {
+      const cardTitle = document.querySelector('.card-title');
+      const cardText = document.querySelector('.description');
+      const secondPage = document.querySelector('.second-page');
+      const infoImage = document.querySelector('.card-img-top');
+      const wikiUrl = document.querySelector('.card-link')
+      // const eventUrl = document.querySelector('.second-link-2')
+      console.log(wikiData)
+
+      cards.forEach((card) => {
+        card.style.display = "none";
+        secondPage.style.display = "flex";
+        secondPage.style.justifyContent = "center"
+        secondPage.style.flexDirection = "row";
+        
+      });
+      if (wikiData.title) {
+
+        infoImage.src = wikiData.thumbnail.source;
+        cardTitle.textContent = wikiData.title;
+        cardText.textContent = wikiData.extract;
+        wikiUrl.href = wikiData.content_urls.desktop.page
+        wikiUrl.target = "_blank";
+      }  else {
+        infoImage.src = "https://media.istockphoto.com/id/513231275/photo/depressed-3d-man-sitting-on-white.jpg?s=1024x1024&w=is&k=20&c=miBuE4k99U1SYY_Y-bA4es5gLdduCLAAT2VWE63CbdE="
+        cardTitle.textContent = "No match found";
+        cardText.textContent = "We are sorry, we don't have more information about the artist, click the link below to see more information about event";
+        wikiUrl.textContent = ""
+      }
+      
+    });
+    
+}
+
+
+// function seeMore(event, artist) {
+//   const clickedCard = event.currentTarget.closest('.card');
+//   console.log(clickedCard)
+//   const wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=true";
+
+
+//   fetch(wikiUrl)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (wikiData) {
+//       console.log(wikiData);
+//       if (artist) {
+//         cards.forEach((card) => {
+//           card.style.display = "none";
+
+
+//         }
+//         );
 
 
 
+//         // Render the information from the clicked card on the next page
+//         const infoImage = clickedCard.querySelector('.card-img-top');
+//         const cardTitle = clickedCard.querySelector('.card-title');
+//         const cardText = clickedCard.querySelector('.description');
+
+//         infoImage.src = wikiData.thumbnail.source;
+//         cardTitle.textContent = wikiData.title;
+//         cardText.textContent = wikiData.extract;
+//       }});
+// }
 
 
 
