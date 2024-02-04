@@ -2,6 +2,7 @@
 body {
   color: #f2f2f2;
 }
+
 html {
   margin: 0;
   padding: 0;
@@ -122,11 +123,12 @@ main .card {
 .second-page {
   display: none;
   text-align: center;
- 
 
-  
-  
+
+
+
 }
+
 /* Styling for hover effect on search button */
 
 #search-btn:hover {
@@ -291,6 +293,8 @@ main .card {
   /* Adjust the width of the scrollbar thumb */
 }
 
-.card .flex-column::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
+.card-body button {
+  margin: 10px;
+  border-radius: 10px;
+
 }
