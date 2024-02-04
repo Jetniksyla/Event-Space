@@ -154,10 +154,19 @@ function displayEvents(events) {
 
 const seeMoreBtn = document.querySelectorAll(".btn");
 
-seeMoreBtn.forEach((button) => {
+seeMoreBtn.forEach((button, index) => {
   button.addEventListener("click", function () {
     const card = button.closest(".card");
     const artist = card.dataset.artist;
+
+    // added events url for a link 
+    const url = getEventsUrl[index];
+    const addEventsUrl = document.querySelector('.card-link-2')
+    addEventsUrl.href = url
+    addEventsUrl.target = "_blank"
+    console.log(url)
+    
+
     // restricts access to the card information from the main page when there is no data
     if (artist) {
       seeMore(artist);
