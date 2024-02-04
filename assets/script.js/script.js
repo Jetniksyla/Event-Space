@@ -27,7 +27,7 @@ function searchEventsByCity(page = 1) {
       return response.json();
     })
     .then(function (locationData) {
-      console.log(locationData)
+      console.log(locationData);
       if (locationData.events.length === 0) {
         console.error("No events found in " + city);
         return;
@@ -100,7 +100,7 @@ function displayEvents(events) {
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
         performerElement.textContent = performer.name;
-        artist = performer.name;  // Update the artist variable
+        artist = performer.name; // Update the artist variable
 
         // Store the current artist in a data attribute on the card element
         card.dataset.artist = artist;
@@ -138,19 +138,23 @@ function displayEvents(events) {
   });
 }
 
-const seeMoreBtn = document.querySelectorAll(".btn")
+const seeMoreBtn = document.querySelectorAll(".btn");
 
 seeMoreBtn.forEach((button) => {
   button.addEventListener("click", function () {
-    const card = button.closest('.card');
+    const card = button.closest(".card");
     const artist = card.dataset.artist;
     console.log(card.dataset)
     seeMore(artist);
   });
-});
+}); 
 
 function seeMore(artist) {
-  let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=false";
+  // Use the provided artist parameter in the Wikipedia API request
+  let wikiUrl =
+    "https://en.wikipedia.org/api/rest_v1/page/summary/" +
+    artist +
+    "?redirect=false";
   fetch(wikiUrl)
     .then(function (response) {
       if (response.ok) {
@@ -160,13 +164,14 @@ function seeMore(artist) {
       }
     })
     .then(function (wikiData) {
-      const cardTitle = document.querySelector('.card-title');
-      const cardText = document.querySelector('.description');
-      const secondPage = document.querySelector('.second-page');
-      const infoImage = document.querySelector('.card-img-top');
-      const wikiUrl = document.querySelector('.card-link');
+      const cardTitle = document.querySelector(".card-title");
+      const cardText = document.querySelector(".description");
+      const secondPage = document.querySelector(".second-page");
+      const infoImage = document.querySelector(".card-img-top");
+      const wikiUrl = document.querySelector(".card-link");
 
       cards.forEach((card) => {
+        showMoreButton.style.display = "none";
         card.style.display = "none";
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center";
