@@ -69,8 +69,10 @@ button.addEventListener("click", function (event) {
     return;
   }
 
+
   searchEventsByCity();
   displayEvents([]); // Display an initial empty array of events
+
 });
 
 showMoreButton.addEventListener("click", function () {
@@ -110,13 +112,13 @@ function displayEvents(events) {
         artist = performer.name; // Update the artist variable
 
         // Store the current artist in a data attribute on the card element
-     
+
         const setEventsUrl = events[index].url
         getEventsUrl.push(events[index].url);
 
         card.dataset.artist = artist;
-        
-       
+
+
 
         // Append performer element to the card
         flexColumn.appendChild(performerElement);
@@ -165,7 +167,7 @@ seeMoreBtn.forEach((button, index) => {
     addEventsUrl.href = url
     addEventsUrl.target = "_blank"
     console.log(url)
-    
+
 
     // restricts access to the card information from the main page when there is no data
     if (artist) {
