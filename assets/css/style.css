@@ -63,10 +63,6 @@ h1 spam {
 
 /* Styling for the main content section */
 
-main {
-  /* padding-bottom: 60px; */
-  /* display: none !important */
-}
 
 main {
   display: flex;
