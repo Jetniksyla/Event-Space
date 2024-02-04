@@ -91,6 +91,8 @@ function displayEvents(events) {
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
         performerElement.textContent = performer.name;
+        artist = events[index].performers[0].name
+        console.log(artist)
 
 
 
@@ -142,7 +144,7 @@ seeMoreBtn.forEach((button) => {
 
 
 function seeMore() {
-  let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=true";
+  let wikiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + artist + "?redirect=false";
   fetch(wikiUrl)
     .then(function (response) {
       return response.json();
@@ -153,7 +155,7 @@ function seeMore() {
       const secondPage = document.querySelector('.second-page');
       const infoImage = document.querySelector('.card-img-top');
       const wikiUrl = document.querySelector('.card-link')
-      const eventUrl = document.querySelector('.second-link-2')
+      // const eventUrl = document.querySelector('.second-link-2')
       console.log(wikiData)
 
       cards.forEach((card) => {
@@ -163,20 +165,22 @@ function seeMore() {
         secondPage.style.flexDirection = "row";
         
       });
-      if (artist && wikiData.title) {
+      if (wikiData.title) {
 
         infoImage.src = wikiData.thumbnail.source;
         cardTitle.textContent = wikiData.title;
         cardText.textContent = wikiData.extract;
         wikiUrl.href = wikiData.content_urls.desktop.page
         wikiUrl.target = "_blank";
-      } else {
+      }  else {
         infoImage.src = "https://media.istockphoto.com/id/513231275/photo/depressed-3d-man-sitting-on-white.jpg?s=1024x1024&w=is&k=20&c=miBuE4k99U1SYY_Y-bA4es5gLdduCLAAT2VWE63CbdE="
-        cardTitle.textContent = "No information found";
+        cardTitle.textContent = "No match found";
         cardText.textContent = "We are sorry, we don't have more information about the artist, click the link below to see more information about event";
         wikiUrl.textContent = ""
       }
+      
     });
+    
 }
 
 
