@@ -6,6 +6,9 @@ let currentPage = 1;
 let totalEvents = 0; // Track the total number of events
 let artist = "";
 let prevArtist = "";
+let setUrl = []
+console.log(setUrl)
+
 
 function searchEventsByCity(page = 1) {
   // Check if the search input has content
@@ -28,11 +31,12 @@ function searchEventsByCity(page = 1) {
     })
     .then(function (locationData) {
       console.log(locationData);
+      
       if (locationData.events.length === 0) {
         console.error("No events found in " + city);
         return;
       }
-
+    
       // Update totalEvents
       totalEvents = locationData.meta.total;
 
@@ -83,7 +87,7 @@ showMoreButton.addEventListener("click", function () {
 
 const cards = document.querySelectorAll(".card");
 
-function displayEvents(events) {
+function displayEvents(events, setUrl) {
   // Update each card with performer details
   cards.forEach((card, index) => {
     const userName = document.createElement("h6");
@@ -96,6 +100,7 @@ function displayEvents(events) {
 
     // Check if events[index] and events[index].performers exist
     if (events[index] && events[index].performers) {
+      
       // Iterate through performers and create elements
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
@@ -104,6 +109,7 @@ function displayEvents(events) {
 
         // Store the current artist in a data attribute on the card element
         card.dataset.artist = artist;
+        setUrl = events[index].url
 
         // Append performer element to the card
         flexColumn.appendChild(performerElement);
@@ -135,6 +141,7 @@ function displayEvents(events) {
       cardImage.src = performerImageURL;
       cardImage.alt = "Performer Image";
     }
+   
   });
 }
 
@@ -144,12 +151,12 @@ seeMoreBtn.forEach((button) => {
   button.addEventListener("click", function () {
     const card = button.closest(".card");
     const artist = card.dataset.artist;
-    console.log(card.dataset)
+
     seeMore(artist);
   });
 }); 
 
-function seeMore(artist) {
+function seeMore(artist, locationData) {
   // Use the provided artist parameter in the Wikipedia API request
   let wikiUrl =
     "https://en.wikipedia.org/api/rest_v1/page/summary/" +
@@ -184,9 +191,7 @@ function seeMore(artist) {
         cardText.textContent = wikiData.extract;
         wikiUrl.href = wikiData.content_urls.desktop.page;
         wikiUrl.target = "_blank";
-      } else if(!artist) {
-        return;
-      }
+      } 
     })
 
       .catch(function (error) {
@@ -205,12 +210,11 @@ function seeMore(artist) {
         });
       
         infoImage.src = "https://media.istockphoto.com/id/513231275/photo/depressed-3d-man-sitting-on-white.jpg?s=1024x1024&w=is&k=20&c=miBuE4k99U1SYY_Y-bA4es5gLdduCLAAT2VWE63CbdE=";
+        showMoreButton.style.display = "none";
         cardTitle.textContent = "No match found";
         cardText.textContent = "We are sorry, we don't have more information about the artist.";
         wikiUrl.href = "";
-        wikiUrl.target = "";
         wikiUrl.textContent = "";
       });
       
-  
     }
