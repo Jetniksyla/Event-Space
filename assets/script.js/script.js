@@ -163,6 +163,7 @@ function seeMore(artist) {
       const wikiUrl = document.querySelector('.card-link')
       
       cards.forEach((card) => {
+        showMoreButton.style.display = "none";
         card.style.display = "none";
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center"
