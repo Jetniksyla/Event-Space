@@ -91,7 +91,7 @@ function displayEvents(events) {
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
         performerElement.textContent = performer.name;
-       
+
         console.log(artist)
 
 
@@ -163,7 +163,7 @@ function seeMore() {
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center"
         secondPage.style.flexDirection = "row";
-        
+
       });
       if (artist && wikiData.title) {
 
@@ -172,15 +172,15 @@ function seeMore() {
         cardText.textContent = wikiData.extract;
         wikiUrl.href = wikiData.content_urls.desktop.page
         wikiUrl.target = "_blank";
-      }  else {
+      } else {
         infoImage.src = "https://media.istockphoto.com/id/513231275/photo/depressed-3d-man-sitting-on-white.jpg?s=1024x1024&w=is&k=20&c=miBuE4k99U1SYY_Y-bA4es5gLdduCLAAT2VWE63CbdE="
         cardTitle.textContent = "No match found";
         cardText.textContent = "We are sorry, we don't have more information about the artist, click the link below to see more information about event";
         wikiUrl.textContent = ""
       }
-      
+
     });
-    
+
 }
 
 
