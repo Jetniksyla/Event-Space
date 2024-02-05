@@ -1,11 +1,16 @@
 const wikiId = "2798ba09d7fab878ba7c6d67fc1ac123";
 const eventId = "Mzk2NjkwMTZ8MTcwNjU3NDExNS40OTM3MDc";
 const showMoreButton = document.querySelector(".displayBlock");
-let city = "";
+let city = "new york" || "";
 let currentPage = 1;
 let totalEvents = 0; // Track the total number of events
 let artist = "";
+let getEventsUrl = []
+console.log(getEventsUrl)
 let prevArtist = "";
+
+
+
 
 function searchEventsByCity(page = 1) {
   // Check if the search input has content
@@ -28,6 +33,7 @@ function searchEventsByCity(page = 1) {
     })
     .then(function (locationData) {
       console.log(locationData);
+
       if (locationData.events.length === 0) {
         console.error("No events found in " + city);
         return;
@@ -47,6 +53,7 @@ function searchEventsByCity(page = 1) {
 
       // Call displayEvents to update cards
       displayEvents(locationData.events);
+      return eventCityUrl;
     });
 }
 
@@ -63,26 +70,11 @@ button.addEventListener("click", function (event) {
     return;
   }
 
+
   searchEventsByCity();
   displayEvents([]); // Display an initial empty array of events
+
 });
-
-showMoreButton.addEventListener("click", function () {
-  // Check if the current artist is the same as the previous one
-  if (artist === prevArtist) {
-    console.log("Same artist as previous research. Skipping API call.");
-    return;
-  }
-
-  // Load the next page of events
-  searchEventsByCity(currentPage);
-
-  // Update the previous artist to the current artist
-  prevArtist = artist;
-});
-
-const cards = document.querySelectorAll(".card");
-
 function displayEvents(events) {
   // Update each card with performer details
   cards.forEach((card, index) => {
@@ -96,14 +88,22 @@ function displayEvents(events) {
 
     // Check if events[index] and events[index].performers exist
     if (events[index] && events[index].performers) {
+
       // Iterate through performers and create elements
       events[index].performers.forEach((performer) => {
         const performerElement = document.createElement("h5");
         performerElement.textContent = performer.name;
         artist = performer.name; // Update the artist variable
 
+        // pushing event url to global array to use it in function
+
+        const setEventsUrl = events[index].url
+        getEventsUrl.push(events[index].url);
         // Store the current artist in a data attribute on the card element
+
         card.dataset.artist = artist;
+
+
 
         // Append performer element to the card
         flexColumn.appendChild(performerElement);
@@ -135,18 +135,64 @@ function displayEvents(events) {
       cardImage.src = performerImageURL;
       cardImage.alt = "Performer Image";
     }
+
   });
 }
 
+function searchEventsByDefaultCity() {
+  city = searchedCity.value || "new york";
+  console.log(searchedCity.value) 
+  displayEvents([]); 
+  searchEventsByCity(1); 
+}
+searchEventsByCity()
+
+
+button.addEventListener("click", function (event) {
+  event.preventDefault();
+  searchEventsByDefaultCity(); 
+});
 const seeMoreBtn = document.querySelectorAll(".btn");
 
-seeMoreBtn.forEach((button) => {
+seeMoreBtn.forEach((button, index) => {
   button.addEventListener("click", function () {
     const card = button.closest(".card");
     const artist = card.dataset.artist;
-    seeMore(artist);
+    localStorage.setItem(artist, "artist")
+    console.log(localStorage)
+
+    // added events url for a link 
+    const url = getEventsUrl[index];
+    const addEventsUrl = document.querySelector('.card-link-2')
+    addEventsUrl.href = url
+    addEventsUrl.target = "_blank"
+    console.log(url)
+
+
+    // restricts access to the card information from the main page when there is no data
+    if (artist) {
+      seeMore(artist);
+    }
   });
 });
+
+showMoreButton.addEventListener("click", function () {
+  // Check if the current artist is the same as the previous one
+  if (artist === prevArtist) {
+    console.log("Same artist as previous research. Skipping API call.");
+    return;
+  }
+
+  // Load the next page of events
+  searchEventsByCity(currentPage);
+
+  // Update the previous artist to the current artist
+  prevArtist = artist;
+});
+
+const cards = document.querySelectorAll(".card");
+
+
 
 function seeMore(artist) {
   // Use the provided artist parameter in the Wikipedia API request
@@ -156,7 +202,11 @@ function seeMore(artist) {
     "?redirect=false";
   fetch(wikiUrl)
     .then(function (response) {
-      return response.json();
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Network response was not ok.");
+      }
     })
     .then(function (wikiData) {
       const cardTitle = document.querySelector(".card-title");
@@ -173,19 +223,38 @@ function seeMore(artist) {
         secondPage.style.flexDirection = "row";
       });
 
-      if (wikiData.title) {
+      if (artist && wikiData.title) {
         infoImage.src = wikiData.thumbnail.source;
         cardTitle.textContent = wikiData.title;
         cardText.textContent = wikiData.extract;
         wikiUrl.href = wikiData.content_urls.desktop.page;
         wikiUrl.target = "_blank";
-      } else {
-        infoImage.src =
-          "https://media.istockphoto.com/id/513231275/photo/depressed-3d-man-sitting-on-white.jpg?s=1024x1024&w=is&k=20&c=miBuE4k99U1SYY_Y-bA4es5gLdduCLAAT2VWE63CbdE=";
-        cardTitle.textContent = "No match found";
-        cardText.textContent =
-          "We are sorry, we don't have more information about the artist, click the link below to see more information about the event";
-        wikiUrl.textContent = "";
       }
+    })
+
+    .catch(function (error) {
+      console.log("Error:", error);
+      const cardTitle = document.querySelector('.card-title');
+      const cardText = document.querySelector('.description');
+      const secondPage = document.querySelector('.second-page');
+      const infoImage = document.querySelector('.card-img-top');
+      const wikiUrl = document.querySelector('.card-link');
+
+      cards.forEach((card) => {
+        card.style.display = "none";
+        secondPage.style.display = "flex";
+        secondPage.style.justifyContent = "center";
+        secondPage.style.flexDirection = "row";
+      });
+
+      infoImage.src = "https://media.istockphoto.com/id/513231275/photo/depressed-3d-man-sitting-on-white.jpg?s=1024x1024&w=is&k=20&c=miBuE4k99U1SYY_Y-bA4es5gLdduCLAAT2VWE63CbdE=";
+      showMoreButton.style.display = "none";
+      cardTitle.textContent = "No match found";
+      cardText.textContent = "We are sorry, we don't have more information about the artist.";
+      wikiUrl.href = "";
+      wikiUrl.textContent = "";
     });
+
+
+
 }
