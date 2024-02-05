@@ -293,8 +293,20 @@ main .card {
   /* Adjust the width of the scrollbar thumb */
 }
 
-.card-body button {
-  margin: 10px;
-  border-radius: 10px;
+#second-page-btn button {
+  display: inline-block;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 16px;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+#second-page-btn button a {
+  color: #000;
+  text-transform: capitalize;
+  text-decoration: none; 
 
 }
