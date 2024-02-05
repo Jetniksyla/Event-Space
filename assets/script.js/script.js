@@ -1,13 +1,14 @@
 const wikiId = "2798ba09d7fab878ba7c6d67fc1ac123";
 const eventId = "Mzk2NjkwMTZ8MTcwNjU3NDExNS40OTM3MDc";
 const showMoreButton = document.querySelector(".displayBlock");
-let city = "";
+let city = "new york" || "";
 let currentPage = 1;
 let totalEvents = 0; // Track the total number of events
 let artist = "";
 let getEventsUrl = []
 console.log(getEventsUrl)
 let prevArtist = "";
+
 
 
 
@@ -74,23 +75,6 @@ button.addEventListener("click", function (event) {
   displayEvents([]); // Display an initial empty array of events
 
 });
-
-showMoreButton.addEventListener("click", function () {
-  // Check if the current artist is the same as the previous one
-  if (artist === prevArtist) {
-    console.log("Same artist as previous research. Skipping API call.");
-    return;
-  }
-
-  // Load the next page of events
-  searchEventsByCity(currentPage);
-
-  // Update the previous artist to the current artist
-  prevArtist = artist;
-});
-
-const cards = document.querySelectorAll(".card");
-
 function displayEvents(events) {
   // Update each card with performer details
   cards.forEach((card, index) => {
@@ -111,10 +95,11 @@ function displayEvents(events) {
         performerElement.textContent = performer.name;
         artist = performer.name; // Update the artist variable
 
-        // Store the current artist in a data attribute on the card element
+        // pushing event url to global array to use it in function
 
         const setEventsUrl = events[index].url
         getEventsUrl.push(events[index].url);
+        // Store the current artist in a data attribute on the card element
 
         card.dataset.artist = artist;
 
@@ -154,12 +139,27 @@ function displayEvents(events) {
   });
 }
 
+function searchEventsByDefaultCity() {
+  city = searchedCity.value || "new york";
+  console.log(searchedCity.value) 
+  displayEvents([]); 
+  searchEventsByCity(1); 
+}
+searchEventsByCity()
+
+
+button.addEventListener("click", function (event) {
+  event.preventDefault();
+  searchEventsByDefaultCity(); 
+});
 const seeMoreBtn = document.querySelectorAll(".btn");
 
 seeMoreBtn.forEach((button, index) => {
   button.addEventListener("click", function () {
     const card = button.closest(".card");
     const artist = card.dataset.artist;
+    localStorage.setItem(artist, "artist")
+    console.log(localStorage)
 
     // added events url for a link 
     const url = getEventsUrl[index];
@@ -175,6 +175,24 @@ seeMoreBtn.forEach((button, index) => {
     }
   });
 });
+
+showMoreButton.addEventListener("click", function () {
+  // Check if the current artist is the same as the previous one
+  if (artist === prevArtist) {
+    console.log("Same artist as previous research. Skipping API call.");
+    return;
+  }
+
+  // Load the next page of events
+  searchEventsByCity(currentPage);
+
+  // Update the previous artist to the current artist
+  prevArtist = artist;
+});
+
+const cards = document.querySelectorAll(".card");
+
+
 
 function seeMore(artist) {
   // Use the provided artist parameter in the Wikipedia API request
@@ -236,6 +254,7 @@ function seeMore(artist) {
       wikiUrl.href = "";
       wikiUrl.textContent = "";
     });
+
 
 
 }
