@@ -298,29 +298,8 @@ main .card {
   /* Adjust the width of the scrollbar thumb */
 }
 
-/* Styling a tags and hover effect on "#second-page-btn" button */
+.card-body button {
+  margin: 10px;
+  border-radius: 10px;
 
-#second-page-btn button {
-  display: inline-block;
-  margin-top: 19px;
-  padding: 16px;
-  border-radius: 16px;
-  background-color: #e9e9e9;
-  border-color: #b4e1ea;
-  text-transform: capitalize;
-  text-decoration: none;
-  width: 70%;
-}
-
-#second-page-btn button a {
-  color: #000;
-  text-transform: capitalize;
-  text-decoration: none;
-}
-
-#second-page-btn button:hover {
-  transform: scale(1.1);
-  transition: 0.5s;
-  cursor: pointer;
-  border-radius: 16px;
 }
