@@ -137,20 +137,21 @@ function displayEvents(events) {
     }
 
   });
+
 }
 
 function searchEventsByDefaultCity() {
   city = searchedCity.value || "new york";
-  console.log(searchedCity.value) 
-  displayEvents([]); 
-  searchEventsByCity(1); 
+  console.log(searchedCity.value)
+  displayEvents([]);
+  searchEventsByCity(1);
 }
 searchEventsByCity()
 
 
 button.addEventListener("click", function (event) {
   event.preventDefault();
-  searchEventsByDefaultCity(); 
+  searchEventsByDefaultCity();
 });
 const seeMoreBtn = document.querySelectorAll(".btn");
 
@@ -158,11 +159,12 @@ seeMoreBtn.forEach((button, index) => {
   button.addEventListener("click", function () {
     const card = button.closest(".card");
     const artist = card.dataset.artist;
-    localStorage.setItem(artist, "artist")
+
     console.log(localStorage)
 
     // added events url for a link 
     const url = getEventsUrl[index];
+    localStorage.setItem("url", url)
     const addEventsUrl = document.querySelector('.card-link-2')
     addEventsUrl.href = url
     addEventsUrl.target = "_blank"
