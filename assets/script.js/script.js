@@ -6,7 +6,7 @@ let currentPage = 1;
 let totalEvents = 0; // Track the total number of events
 let artist = "";
 let getEventsUrl = []
-console.log(getEventsUrl)
+
 let prevArtist = "";
 
 
@@ -108,6 +108,7 @@ function displayEvents(events) {
         // Append performer element to the card
         flexColumn.appendChild(performerElement);
       });
+
     }
 
     // Check if events[index] and other properties exist before accessing them
@@ -138,13 +139,14 @@ function displayEvents(events) {
 
   });
 
+
 }
 
 function searchEventsByDefaultCity() {
   city = searchedCity.value || "new york";
-  console.log(searchedCity.value)
-  displayEvents([]);
-  searchEventsByCity(1);
+  localStorage.setItem("last city", city)
+  console.log(localStorage)
+
 }
 searchEventsByCity()
 
@@ -164,7 +166,6 @@ seeMoreBtn.forEach((button, index) => {
 
     // added events url for a link 
     const url = getEventsUrl[index];
-    localStorage.setItem("url", url)
     const addEventsUrl = document.querySelector('.card-link-2')
     addEventsUrl.href = url
     addEventsUrl.target = "_blank"
