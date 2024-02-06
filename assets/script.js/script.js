@@ -164,14 +164,13 @@ seeMoreBtn.forEach((button, index) => {
     const artist = card.dataset.artist;
 
 
-    console.log(localStorage)
-
     // added events url for a link 
     const url = getEventsUrl[index];
     const addEventsUrl = document.querySelector('.card-link-2')
     addEventsUrl.href = url
     addEventsUrl.target = "_blank"
-    console.log(url)
+    localStorage.setItem("url", url)
+    console.log(localStorage)
 
 
     // restricts access to the card information from the main page when there is no data
@@ -221,9 +220,11 @@ function seeMore(artist) {
       const secondPage = document.querySelector(".second-page");
       const infoImage = document.querySelector(".card-img-top");
       const wikiUrl = document.querySelector(".card-link");
+      const historyUrl = document.querySelector('.history')
 
       cards.forEach((card) => {
         showMoreButton.style.display = "none";
+        historyUrl.style.display = "none"
         card.style.display = "none";
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center";
@@ -231,6 +232,7 @@ function seeMore(artist) {
       });
 
       if (artist && wikiData.title) {
+        
         infoImage.src = wikiData.thumbnail.source;
         cardTitle.textContent = wikiData.title;
         cardText.textContent = wikiData.extract;
@@ -246,8 +248,10 @@ function seeMore(artist) {
       const secondPage = document.querySelector('.second-page');
       const infoImage = document.querySelector('.card-img-top');
       const wikiUrl = document.querySelector('.card-link');
+      const historyUrl = document.querySelector('.history')
 
       cards.forEach((card) => {
+        historyUrl.style.display = "none"
         card.style.display = "none";
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center";
@@ -265,3 +269,14 @@ function seeMore(artist) {
 
 
 }
+
+historyUrl = document.querySelector('.history')
+historyUrl.addEventListener("click", function()
+{
+  getLastLink = localStorage.getItem(url)
+  historyUrl = document.querySelector('.history')
+  historyUrl.href = getLastLink
+  historyUrl,target = "_blank"
+  console.log(getLastLink)
+
+})
