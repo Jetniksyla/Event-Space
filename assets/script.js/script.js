@@ -95,6 +95,7 @@ function displayEvents(events) {
 
     const flexColumn = card.querySelector(".flex-column");
     flexColumn.innerHTML = "";
+    getEventsUrl.push(events[index].url);
 
     // Check if events[index] and events[index].performers exist
     if (events[index] && events[index].performers) {
@@ -107,8 +108,8 @@ function displayEvents(events) {
 
         // pushing event url to global array to use it in function
 
-        const setEventsUrl = events[index].url
-        getEventsUrl.push(events[index].url);
+
+        
         // Store the current artist in a data attribute on the card element
 
         card.dataset.artist = artist;
