@@ -11,7 +11,6 @@ html {
 }
 
 /* Styling for elements with the class "with-background" */
-
 .with-background {
   background-image: url('https://images.pexels.com/photos/3319726/pexels-photo-3319726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-size: 100%;
@@ -23,7 +22,6 @@ html {
 }
 
 /* Styling for header section */
-
 .header {
   position: relative;
   display: flex;
@@ -75,7 +73,6 @@ main {
 }
 
 /* Styling for card elements */
-
 main .card {
   border-radius: 5px;
   width: 400px;
@@ -83,7 +80,6 @@ main .card {
 }
 
 /* Styling for the search container */
-
 #search-container {
   display: flex;
   justify-content: center;
@@ -91,7 +87,6 @@ main .card {
 }
 
 /* Styling for the search input */
-
 #search-input {
   position: relative;
   font-size: larger;
@@ -105,9 +100,7 @@ main .card {
 }
 
 /* Styling for the search button */
-
 #search-btn {
-
   position: absolute;
   margin-top: 10px;
   font-size: larger;
@@ -125,15 +118,12 @@ main .card {
 }
 
 /* Styling for hover effect on search button */
-
 #search-btn:hover {
   box-shadow: rgb(0 0 0 / 46%) 0px 0px 8px 5px;
   transition: 0.3s;
-  background-color: #151e15;
 }
 
 /* Styling for card body */
-
 .card-body {
   flex: 1 1 auto;
   padding: 15px;
@@ -143,17 +133,15 @@ main .card {
 }
 
 /* Styling for the "Learn more" button */
-
 .btn-info {
   color: #000;
-  background-color: #0dcaf0;
-  border-color: #0dcaf0;
+  background-color: #0DCAF0;
+  border-color: #0DCAF0;
   width: 100%;
   margin-top: 13px;
 }
 
 /* Styling for the events and about sections */
-
 .events-section,
 .about-section {
   height: 1px;
@@ -163,11 +151,9 @@ main .card {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 /* Styling for content labels in events and about sections */
-
 .events-section::before {
   content: "EVENT  SPACE";
   margin-top: -4px;
@@ -193,7 +179,6 @@ main .card {
 }
 
 /* Styling for footer section */
-
 footer {
   bottom: 0;
   margin: auto;
@@ -202,7 +187,6 @@ footer {
 }
 
 /* Styling for paragraph inside the footer */
-
 footer p {
   font-size: 18px;
   width: 55%;
@@ -212,7 +196,6 @@ footer p {
 }
 
 /* Styling for images and SVGs 'SVG stands for Scalable Vector Graphics*/
-
 img,
 svg {
   vertical-align: middle;
@@ -247,7 +230,6 @@ main .card {
 
 
 /* Styling for "Show More" button when displayed */
-
 .displayBlock {
   margin-top: 15px;
   display: block;
@@ -263,9 +245,7 @@ main .card {
 }
 
 /* Styling for hover effect on "Show More" button */
-
 .displayBlock:hover {
-  background-color: #151e15;
   box-shadow: rgb(0 0 0 / 46%) 0px 0px 8px 5px;
   transition: 0.3s;
 }
@@ -288,8 +268,7 @@ main .card {
   /* Adjust the width of the scrollbar thumb */
 }
 
-/* Styling a tags and hover effect on "#second-page-btn" button */
-
+/* Styles for the second page button */
 #second-page-btn button {
   display: inline-block;
   margin: 10px;
@@ -302,12 +281,14 @@ main .card {
   width: 70%;
 }
 
+/* Styles for the link inside the button */
 #second-page-btn button a {
   color: #000;
   text-transform: capitalize;
   text-decoration: none;
 }
 
+/* Hover effect for the button */
 #second-page-btn button:hover {
   transform: scale(1.1);
   transition: 0.5s;
@@ -315,13 +296,14 @@ main .card {
   border-radius: 16px;
 }
 
-
+/* Media query for adjusting the card image */
 .media-query .card-img-top {
   height: auto;
   object-fit: cover;
   width: 50%;
 }
 
+/* Styles for the description */
 .description {
   padding: 10px;
   width: 70%;
@@ -330,20 +312,30 @@ main .card {
   font-family: math;
 }
 
+/* Additional styles for the button in smaller viewports */
 #second-page-btn button {
   width: 35%;
   margin: 20px;
 }
 
+/* Styles for the card title */
 .card-title {
   padding: 20px;
   font-size: 25px;
 }
+
+/* Styles for the history list */
 .history-list {
   margin-top: 30px;
   text-align: center;
+  width: 45%;
+  text-decoration: none;
+  background: darkgray;
+  color: black;
+  border-radius: 15px;
 }
 
+/* Media queries for responsive design */
 @media only screen and (max-width: 980px) {
   .header p {
     width: auto;
@@ -415,7 +407,7 @@ main .card {
     width: 330px;
     font-size: unset;
     height: 35px;
-  } 
+  }
 
   .header p {
     width: 100%;
@@ -460,13 +452,13 @@ main .card {
     font-size: small;
   }
 
-.card-img-top {
-  height: 60%;
-  object-fit: cover;
-}
+  .card-img-top {
+    height: 60%;
+    object-fit: cover;
+  }
 
-.second-page .card-body h5 {
-  padding: 10px;
+  .second-page .card-body h5 {
+    padding: 10px;
 
-}
+  }
 }
