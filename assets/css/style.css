@@ -339,6 +339,10 @@ main .card {
   padding: 20px;
   font-size: 25px;
 }
+.history-list {
+  margin-top: 30px;
+  text-align: center;
+}
 
 @media only screen and (max-width: 980px) {
   .header p {
@@ -411,7 +415,7 @@ main .card {
     width: 330px;
     font-size: unset;
     height: 35px;
-  } }
+  } 
 
   .header p {
     width: 100%;
@@ -464,4 +468,5 @@ main .card {
 .second-page .card-body h5 {
   padding: 10px;
 
+}
 }
