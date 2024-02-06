@@ -1,25 +1,15 @@
-# <event-space(team-project)>
+# Welcome to Event Space :star2:
 
 ## Description
 
-Events finder by cities with HTML, CSS and JavaScript with using Seatgeek and Wikipedia API. created by Geneil Young, Levan Gulbatashvili and Jetnik Syla
-
+Hey there, party enthusiasts! Are you ready to dive into the electrifying world of events with Event Space? :tada: This awesome web application is your ticket to discovering exciting happenings around the globe, and guess what? It's all thanks to the magic of HTML, CSS, and JavaScript - crafted with love and skill by our amazing team. Event Space is here to make your event-hunting journey a breeze.  
 
 ## Usage
 
-Web page gives you ability to search for events from seatgeeks api by entering different cities in the search input, it offers events from that city with some important information location date etc... when you click view more button for specific event it shows information about performer and link for seatgeeks webpage for full information on the event and wikipedia link for full information about perfomer.
+With Event Space by your side, tracking down thrilling events has never been easier! 🌎:notes: Simply type in your desired city, and voilà! Event Space will whip up a personalized list of events just for you. From concerts to sports games, there's something for everyone! And that's not all – click on the "View More" button for any event, and you'll unlock a treasure trove of additional info about the performers. Plus, we've added handy links to the SeatGeek webpage for full event details and Wikipedia for juicy performer insights. Get ready to explore, discover, and dance the night away with Event Space!
 
+Ready to embark on your next adventure? Let's go! :rocket:
 
-![screencapture-file-Users-levangulbatashvili-bootcamp-homework-first-team-project-index-html-2024-02-05-21_07_36](https://github.com/Jetniksyla/first-team-project/assets/150108077/8d1f5343-a98c-49c5-a601-19efa8c26e5b)
+## Project Screenshot
 
-
-## Credits
-
-...
-
-## License
-
-MTA License
-
----
-
+![Alt text](assets/Project_screenchot.png)
