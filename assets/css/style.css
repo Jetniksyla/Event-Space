@@ -314,12 +314,3 @@ main .card {
   cursor: pointer;
   border-radius: 16px;
 }
-
-.card-img-top {
-  height: 60%;
-  object-fit: cover;
-}
-
-.second-page .card-body h5 {
-  padding: 10px;
-}
