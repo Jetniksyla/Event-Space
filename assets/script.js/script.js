@@ -38,7 +38,7 @@ function searchEventsByCity(page = 1) {
         console.error("No events found in " + city);
         return;
       }
-
+      
       // Update totalEvents
       totalEvents = locationData.meta.total;
 
@@ -109,7 +109,7 @@ function displayEvents(events) {
         // pushing event url to global array to use it in function
 
 
-        
+
         // Store the current artist in a data attribute on the card element
 
         card.dataset.artist = artist;
@@ -165,7 +165,7 @@ seeMoreBtn.forEach((button, index) => {
     const artist = card.dataset.artist;
 
 
-    // added events url for a link 
+    // added events url for a link and localstorage
     const url = getEventsUrl[index];
     const addEventsUrl = document.querySelector('.card-link-2')
     addEventsUrl.href = url
@@ -174,7 +174,7 @@ seeMoreBtn.forEach((button, index) => {
     console.log(localStorage)
 
 
-    // restricts access to the card information from the main page when there is no data
+    
     if (artist) {
       seeMore(artist);
     }
