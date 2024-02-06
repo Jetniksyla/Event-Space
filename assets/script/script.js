@@ -81,6 +81,7 @@ function displayEvents(events) {
   if (events.length === 0) {
     return;
   }
+  getEventsUrl = []
   cards.forEach((card, index) => {
     const userName = document.createElement("h6");
     const address = document.createElement("p");
