@@ -319,3 +319,7 @@ main .card {
   height: 60%;
   object-fit: cover;
 }
+
+.second-page .card-body h5 {
+  padding: 10px;
+}
