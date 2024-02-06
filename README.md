@@ -2,7 +2,7 @@
 
 ## Description
 
-Events finder by cities with HTML, CSS and JavaScript with using Seatgeek and wikipedia API. created by Geneil Young, Levan Gulbatashvili and Jetnik Syla
+Events finder by cities with HTML, CSS and JavaScript with using Seatgeek and Wikipedia API. created by Geneil Young, Levan Gulbatashvili and Jetnik Syla
 
 
 ## Usage
