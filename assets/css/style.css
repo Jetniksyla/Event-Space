@@ -1,5 +1,6 @@
+/* Resetting default styles and setting up a basic styling for the page */
 body {
-  color: #F2F2F2;
+  color: #f2f2f2;
 }
 
 html {
@@ -9,6 +10,7 @@ html {
   font-family: sans-serif;
 }
 
+/* Styling for elements with the class "with-background" */
 .with-background {
   background-image: url('https://images.pexels.com/photos/3319726/pexels-photo-3319726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-size: 100%;
@@ -19,6 +21,7 @@ html {
   /* Ensure the background covers the entire element */
 }
 
+/* Styling for header section */
 .header {
   position: relative;
   display: flex;
@@ -27,7 +30,9 @@ html {
   padding-top: 60px;
 }
 
+/* Styling for paragraph inside the header */
 .header p {
+  /* display: none; /* Display property commented out, can be used if needed */
   box-shadow: 0px 0px 20px -4px;
   color: silver;
   text-align: center;
@@ -44,9 +49,11 @@ html {
   padding: 74px 0 30px 0;
 }
 
+
 .first-span {
   text-decoration: underline;
   box-shadow: 5px 13px 5px 3px #fff;
+
 }
 
 .sec-span {
@@ -56,6 +63,7 @@ html {
   box-shadow: 5px 5px 19px 4px;
 }
 
+/* Styling for the main content section */
 main {
   display: flex;
   gap: 35px;
@@ -64,35 +72,40 @@ main {
   margin-block-start: 40px;
 }
 
+/* Styling for card elements */
 main .card {
   border-radius: 5px;
   width: 400px;
+  /* height: 600px; */
 }
 
+/* Styling for the search container */
 #search-container {
   display: flex;
   justify-content: center;
   margin-right: 101px;
 }
 
+/* Styling for the search input */
 #search-input {
   position: relative;
   font-size: larger;
   padding: 23px;
   width: 580px;
   margin-right: -115px;
-  background: #D5DBE1;
+  background: #d5dbe1;
   border: none;
   border-radius: 15px;
   box-shadow: 0px 0px 30px -5px;
 }
 
+/* Styling for the search button */
 #search-btn {
   position: absolute;
   margin-top: 10px;
   font-size: larger;
   padding: 13px 20px;
-  background-color: #1D314E;
+  background-color: #1d314e;
   color: white;
   border: none;
   cursor: pointer;
@@ -104,12 +117,13 @@ main .card {
   text-align: center;
 }
 
+/* Styling for hover effect on search button */
 #search-btn:hover {
   box-shadow: rgb(0 0 0 / 46%) 0px 0px 8px 5px;
   transition: 0.3s;
-  background-color: #151E15;
 }
 
+/* Styling for card body */
 .card-body {
   flex: 1 1 auto;
   padding: 15px;
@@ -118,6 +132,7 @@ main .card {
   justify-content: space-between;
 }
 
+/* Styling for the "Learn more" button */
 .btn-info {
   color: #000;
   background-color: #0DCAF0;
@@ -126,6 +141,7 @@ main .card {
   margin-top: 13px;
 }
 
+/* Styling for the events and about sections */
 .events-section,
 .about-section {
   height: 1px;
@@ -137,6 +153,7 @@ main .card {
   justify-content: center;
 }
 
+/* Styling for content labels in events and about sections */
 .events-section::before {
   content: "EVENT  SPACE";
   margin-top: -4px;
@@ -161,6 +178,7 @@ main .card {
   box-shadow: 0px 20px 32px -25px;
 }
 
+/* Styling for footer section */
 footer {
   bottom: 0;
   margin: auto;
@@ -168,6 +186,7 @@ footer {
   padding: 20px;
 }
 
+/* Styling for paragraph inside the footer */
 footer p {
   font-size: 18px;
   width: 55%;
@@ -176,6 +195,7 @@ footer p {
   font-family: math;
 }
 
+/* Styling for images and SVGs 'SVG stands for Scalable Vector Graphics*/
 img,
 svg {
   vertical-align: middle;
@@ -200,6 +220,7 @@ svg:hover {
   max-width: 400px;
   margin: auto;
   overflow: hidden;
+  /* Ensure the card does not expand when the image is enlarged */
 }
 
 main .card {
@@ -207,12 +228,14 @@ main .card {
   box-shadow: 0px 0px 31px -9px;
 }
 
+
+/* Styling for "Show More" button when displayed */
 .displayBlock {
   margin-top: 15px;
   display: block;
   margin: auto;
   padding: 15px 25px;
-  background-color: #1D314E;
+  background-color: #1d314e;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -221,8 +244,8 @@ main .card {
   font-weight: bold;
 }
 
+/* Styling for hover effect on "Show More" button */
 .displayBlock:hover {
-  background-color: #151E15;
   box-shadow: rgb(0 0 0 / 46%) 0px 0px 8px 5px;
   transition: 0.3s;
 }
@@ -235,32 +258,37 @@ main .card {
 
 .card .flex-column::-webkit-scrollbar {
   width: 8px;
+  /* Adjust the width of the scrollbar track */
 }
 
 .card .flex-column::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 4px;
   width: 4px;
+  /* Adjust the width of the scrollbar thumb */
 }
 
+/* Styles for the second page button */
 #second-page-btn button {
   display: inline-block;
   margin: 10px;
   padding: 16px;
   border-radius: 16px;
-  background-color: #E9E9E9;
-  border-color: #B4E1EA;
+  background-color: #e9e9e9;
+  border-color: #b4e1ea;
   text-transform: capitalize;
   text-decoration: none;
   width: 70%;
 }
 
+/* Styles for the link inside the button */
 #second-page-btn button a {
   color: #000;
   text-transform: capitalize;
   text-decoration: none;
 }
 
+/* Hover effect for the button */
 #second-page-btn button:hover {
   transform: scale(1.1);
   transition: 0.5s;
@@ -268,12 +296,14 @@ main .card {
   border-radius: 16px;
 }
 
+/* Media query for adjusting the card image */
 .media-query .card-img-top {
   height: auto;
   object-fit: cover;
   width: 50%;
 }
 
+/* Styles for the description */
 .description {
   padding: 10px;
   width: 70%;
@@ -282,16 +312,30 @@ main .card {
   font-family: math;
 }
 
+/* Additional styles for the button in smaller viewports */
 #second-page-btn button {
   width: 35%;
   margin: 20px;
 }
 
+/* Styles for the card title */
 .card-title {
   padding: 20px;
   font-size: 25px;
 }
 
+/* Styles for the history list */
+.history-list {
+  margin-top: 30px;
+  text-align: center;
+  width: 45%;
+  text-decoration: none;
+  background: darkgray;
+  color: black;
+  border-radius: 15px;
+}
+
+/* Media queries for responsive design */
 @media only screen and (max-width: 980px) {
   .header p {
     width: auto;
@@ -415,5 +459,6 @@ main .card {
 
   .second-page .card-body h5 {
     padding: 10px;
+
   }
 }
