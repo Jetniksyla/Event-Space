@@ -84,6 +84,9 @@ button.addEventListener("click", function (event) {
 });
 function displayEvents(events) {
   // Update each card with performer details
+  if (events.length === 0) {
+    return;
+  }
   cards.forEach((card, index) => {
     const userName = document.createElement("h6");
     const address = document.createElement("p");
@@ -144,15 +147,9 @@ function displayEvents(events) {
       cardImage.alt = "Performer Image";
     }
 
+
   });
 
-
-}
-
-function searchEventsByDefaultCity() {
-  city = searchedCity.value || "new york";
-  localStorage.setItem("last city", city)
-  console.log(localStorage)
 
 }
 searchEventsByCity()
@@ -181,7 +178,9 @@ seeMoreBtn.forEach((button, index) => {
     if (artist) {
       seeMore(artist);
     }
+
   });
+
 });
 
 showMoreButton.addEventListener("click", function () {
