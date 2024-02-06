@@ -69,6 +69,13 @@ button.addEventListener("click", function (event) {
     console.error("Please enter a city in the search input.");
     return;
   }
+  const hidePage = document.querySelector(".second-page")
+  hidePage.style.display = "none"
+  cards.forEach((card) => {
+    showMoreButton.style.display = "none";
+    card.style.display = "flex";
+
+  });
 
 
   searchEventsByCity();
@@ -151,18 +158,14 @@ function searchEventsByDefaultCity() {
 searchEventsByCity()
 
 
-button.addEventListener("click", function (event) {
-  event.preventDefault();
-  searchEventsByDefaultCity();
-  const hidePage = document.querySelector(".second-page")
-  hidePage.style.display = "none"
-});
+
 const seeMoreBtn = document.querySelectorAll(".btn");
 
 seeMoreBtn.forEach((button, index) => {
   button.addEventListener("click", function () {
     const card = button.closest(".card");
     const artist = card.dataset.artist;
+
 
     console.log(localStorage)
 
