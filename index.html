@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for character set and viewport settings -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link to your custom stylesheet and Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       rel="stylesheet"
@@ -12,10 +14,12 @@
     <title>First Team Project</title>
   </head>
   <body>
+    <!-- Header section with a background -->
     <header class="p-5 mb-4 bg-light with-background">
       <section class="header">
+        <!-- Content inside the header -->
         <div class="col-12 col-md-6">
-          <h1>Book your next EVENT.</h1>
+          <h1><span class="first-span">Boo</span>K yo<span>u</span>r next <span class="sec-span">Event</span></h1>
           <p>
             Dive in, make yourself at home, and let the vibrant array of events
             enrich your journey. We look forward to sharing memorable moments
@@ -23,19 +27,47 @@
           </p>
         </div>
       </section>
+      <!-- Search section -->
+      <section>
+        <div id="search-container">
+          <div bg-light id="search-wrapper">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for events in your city"
+            />
+            <button id="search-btn">Search</button>
+          </div>
+        </div>
+      </section>
     </header>
-    <div class="services-section"></div>
+    <!-- Empty section for events -->
+    <section class="events-section"></section>
+    <section class="second-page">
+        <div class="media-query">
+          <img class="card-img-top" src="" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="description"></p>
+          </div>
+          <div id="second-page-btn">
+          <button><a class="card-link">Click here to see full information about artist.</a></button>
+          <button><a class="card-link-2">Click here to see full information about event.</a></button>
+          <button class="home-button" onClick="window.location.reload();">Go Back To The Main Page</button>
+          </div>
+        </div>
+    </section>
+    <!-- Main content section -->
     <main>
       <div>
         <div class="card">
           <img
-            src="https://www.cityofnewportrichey.org/wp-content/uploads/2018/02/Events.gif"
             alt="party"
+            src="https://images.unsplash.com/photo-1623788452350-4c8596ff40bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDN8fHxlbnwwfHx8fHw%3D&w=1000&q=80"
           />
           <div class="card-body">
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
             <button class="btn btn-block btn-info">Learn more.</button>
           </div>
         </div>
@@ -43,13 +75,12 @@
       <div>
         <div class="card">
           <img
-            src="https://www.cityofnewportrichey.org/wp-content/uploads/2018/02/Events.gif"
+            src="https://images.unsplash.com/photo-1566808907623-51b8fc382454?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Nnw0SC1pYWNzZTItSXx8ZW58MHx8fHx8&w=1000&q=80"
             alt="party"
           />
           <div class="card-body">
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
             <button class="btn btn-block btn-info">Learn more.</button>
           </div>
         </div>
@@ -57,13 +88,12 @@
       <div>
         <div class="card">
           <img
-            src="https://www.cityofnewportrichey.org/wp-content/uploads/2018/02/Events.gif"
+            src="https://st3.depositphotos.com/33173748/34953/i/450/depositphotos_349538024-stock-photo-june-2019-johan-cruijff-arena.jpg"
             alt="party"
           />
           <div class="card-body">
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
             <button class="btn btn-block btn-info">Learn more.</button>
           </div>
         </div>
@@ -71,13 +101,12 @@
       <div>
         <div class="card">
           <img
-            src="https://www.cityofnewportrichey.org/wp-content/uploads/2018/02/Events.gif"
+            src="https://musicmuncher.com/wp-content/uploads/2020/07/concert-1748102_1920.jpg"
             alt="party"
           />
           <div class="card-body">
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
             <button class="btn btn-block btn-info">Learn more.</button>
           </div>
         </div>
@@ -85,13 +114,12 @@
       <div>
         <div class="card">
           <img
-            src="https://www.cityofnewportrichey.org/wp-content/uploads/2018/02/Events.gif"
+            src="https://media.timeout.com/images/106056855/image.jpg"
             alt="party"
           />
           <div class="card-body">
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
             <button class="btn btn-block btn-info">Learn more.</button>
           </div>
         </div>
@@ -99,20 +127,51 @@
       <div>
         <div class="card">
           <img
-            src="https://www.cityofnewportrichey.org/wp-content/uploads/2018/02/Events.gif"
+            src="https://images.unsplash.com/photo-1574715988905-61fbac7e0302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZGN8ZW58MHwwfDB8fHww&w=1000&q=80"
             alt="party"
           />
           <div class="card-body">
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
             <button class="btn btn-block btn-info">Learn more.</button>
           </div>
         </div>
+      </div>
+      <div>
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1574715988905-61fbac7e0302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZGN8ZW58MHwwfDB8fHww&w=1000&q=80"
+            alt="party"
+          />
+          <div class="card-body">
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
+            <button class="btn btn-block btn-info">Learn more.</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1574715988905-61fbac7e0302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZGN8ZW58MHwwfDB8fHww&w=1000&q=80"
+            alt="party"
+          />
+          <div class="card-body">
+            <p class="card-text"></p>
+            <div class="flex-column" id="users"></div>
+            <button class="btn btn-block btn-info">Learn more.</button>
+          </div>
+        </div>
+      </div>
       </div>
     </main>
+    <!-- Button to show more content -->
+    <button class="displayBlock" style="display: none">Show More</button>
+    <!-- Footer section -->
     <footer>
+      <!-- About section within the footer -->
       <div class="about-section"></div>
+      <!-- Paragraph describing the purpose of the app -->
       <p>
         Welcome to our app! We're thrilled to have you join our community. This
         digital space is designed to enhance your experience and offer a
@@ -122,5 +181,8 @@
         the latest happenings, our app is your go-to destination.
       </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <!-- Script tag for including JavaScript file -->
+    <script src="./assets/script/script.js"></script>
   </body>
 </html>
