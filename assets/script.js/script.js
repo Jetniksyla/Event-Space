@@ -78,6 +78,9 @@ button.addEventListener("click", function (event) {
 });
 function displayEvents(events) {
   // Update each card with performer details
+  if (events.length === 0) {
+    return;
+  }
   cards.forEach((card, index) => {
     const userName = document.createElement("h6");
     const address = document.createElement("p");
@@ -133,15 +136,13 @@ function displayEvents(events) {
       cardImage.src = performerImageURL;
       cardImage.alt = "Performer Image";
     }
+
+
   });
 }
+searchEventsByCity()
 
-function searchEventsByDefaultCity() {
-  city = searchedCity.value || "new york";
-  localStorage.setItem("last city", city);
-  console.log(localStorage);
-}
-searchEventsByCity();
+
 
 const seeMoreBtn = document.querySelectorAll(".btn");
 
@@ -152,18 +153,22 @@ seeMoreBtn.forEach((button, index) => {
 
     console.log(localStorage);
 
-    // added events url for a link
+    // added events url for a link 
     const url = getEventsUrl[index];
-    const addEventsUrl = document.querySelector(".card-link-2");
-    addEventsUrl.href = url;
-    addEventsUrl.target = "_blank";
-    console.log(url);
+    const addEventsUrl = document.querySelector('.card-link-2')
+    addEventsUrl.href = url
+    addEventsUrl.target = "_blank"
+    localStorage.setItem("url", url)
+    console.log(localStorage)
+
 
     // restricts access to the card information from the main page when there is no data
     if (artist) {
       seeMore(artist);
     }
+
   });
+
 });
 
 showMoreButton.addEventListener("click", function () {
@@ -202,9 +207,11 @@ function seeMore(artist) {
       const secondPage = document.querySelector(".second-page");
       const infoImage = document.querySelector(".card-img-top");
       const wikiUrl = document.querySelector(".card-link");
+      const historyUrl = document.querySelector('.history')
 
       cards.forEach((card) => {
         showMoreButton.style.display = "none";
+        historyUrl.style.display = "none"
         card.style.display = "none";
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center";
@@ -212,6 +219,7 @@ function seeMore(artist) {
       });
 
       if (artist && wikiData.title) {
+        
         infoImage.src = wikiData.thumbnail.source;
         cardTitle.textContent = wikiData.title;
         cardText.textContent = wikiData.extract;
@@ -222,13 +230,15 @@ function seeMore(artist) {
 
     .catch(function (error) {
       console.log("Error:", error);
-      const cardTitle = document.querySelector(".card-title");
-      const cardText = document.querySelector(".description");
-      const secondPage = document.querySelector(".second-page");
-      const infoImage = document.querySelector(".card-img-top");
-      const wikiUrl = document.querySelector(".card-link");
+      const cardTitle = document.querySelector('.card-title');
+      const cardText = document.querySelector('.description');
+      const secondPage = document.querySelector('.second-page');
+      const infoImage = document.querySelector('.card-img-top');
+      const wikiUrl = document.querySelector('.card-link');
+      const historyUrl = document.querySelector('.history')
 
       cards.forEach((card) => {
+        historyUrl.style.display = "none"
         card.style.display = "none";
         secondPage.style.display = "flex";
         secondPage.style.justifyContent = "center";
@@ -245,3 +255,14 @@ function seeMore(artist) {
       wikiUrl.textContent = "";
     });
 }
+
+historyUrl = document.querySelector('.history')
+historyUrl.addEventListener("click", function()
+{
+  getLastLink = localStorage.getItem(url)
+  historyUrl = document.querySelector('.history')
+  historyUrl.href = getLastLink
+  historyUrl,target = "_blank"
+  console.log(getLastLink)
+
+})

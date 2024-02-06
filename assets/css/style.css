@@ -315,7 +315,7 @@ main .card {
   border-radius: 16px;
 }
 
-]
+
 .media-query .card-img-top {
   height: auto;
   object-fit: cover;
@@ -411,7 +411,7 @@ main .card {
     width: 330px;
     font-size: unset;
     height: 35px;
-  }
+  } }
 
   .header p {
     width: 100%;
@@ -455,7 +455,7 @@ main .card {
     padding: 10px 20px;
     font-size: small;
   }
-]
+
 .card-img-top {
   height: 60%;
   object-fit: cover;
