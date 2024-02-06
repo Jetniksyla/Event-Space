@@ -315,11 +315,143 @@ main .card {
   border-radius: 16px;
 }
 
-.card-img-top {
+.media-query .card-img-top {
   height: auto;
   object-fit: cover;
+  width: 50%;
 }
 
-.second-page .card-body h5 {
+.description {
   padding: 10px;
+  width: 70%;
+  margin: auto;
+  font-size: 17px;
+  font-family: math;
+}
+
+#second-page-btn button {
+  width: 35%;
+  margin: 20px;
+}
+
+.card-title {
+  padding: 20px;
+  font-size: 25px;
+}
+
+@media only screen and (max-width: 980px) {
+  .header p {
+    width: auto;
+    font-size: medium;
+  }
+
+  #search-input {
+    width: 420px;
+    margin-right: -100px;
+    height: 45px;
+    font-size: medium;
+  }
+
+  #search-btn {
+    padding: 5px;
+    font-size: larger;
+    margin: 4px;
+    width: 90px;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .header p {
+    font-size: medium;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .header p {
+    font-size: medium;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .header p {
+    font-size: medium;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .header p {
+    font-size: medium;
+    width: auto;
+  }
+
+  .description {
+    width: auto;
+  }
+
+  #second-page-btn button {
+    margin: 5px;
+    width: 50%;
+    padding: 5px;
+    font-size: small;
+  }
+
+  .media-query .card-img-top {
+    height: auto;
+    object-fit: cover;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  #search-input {
+    width: 330px;
+    font-size: unset;
+    height: 35px;
+  }
+
+  .header p {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  img,
+  src {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-body {
+    width: 100%;
+  }
+
+  main {
+    margin: 30px
+  }
+
+  main .card {
+    width: auto;
+  }
+
+  footer p {
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  #search-btn {
+    width: 70px;
+    margin-left: 25px;
+    padding: 6px;
+    margin-top: 5px;
+    font-size: medium;
+  }
+
+  .displayBlock {
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: small;
+  }
 }
