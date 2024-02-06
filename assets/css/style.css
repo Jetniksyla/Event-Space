@@ -51,22 +51,21 @@ html {
   padding: 74px 0 30px 0;
 }
 
-.header h1 span {
+
+.first-span {
+  text-decoration: underline;
+  box-shadow: 5px 13px 5px 3px #fff;
+
+}
+
+.sec-span {
   color: red;
   font-size: 54px;
   text-decoration: underline;
   box-shadow: 5px 5px 19px 4px;
 }
 
-h1 spam {
-  text-decoration: underline;
-  box-shadow: 5px 13px 5px 3px #fff;
-}
-
-
 /* Styling for the main content section */
-
-
 main {
   display: flex;
   gap: 35px;
@@ -123,10 +122,6 @@ main .card {
 .second-page {
   display: none;
   text-align: center;
-
-
-
-
 }
 
 /* Styling for hover effect on search button */
