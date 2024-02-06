@@ -245,11 +245,6 @@ svg:hover {
   /* Ensure the card does not expand when the image is enlarged */
 }
 
-.home-button {
-  margin-top: 20px;
-  
-}
-
 main .card {
   border-radius: 5px;
   box-shadow: 0px 0px 31px -9px;
@@ -298,8 +293,29 @@ main .card {
   /* Adjust the width of the scrollbar thumb */
 }
 
-.card-body button {
-  margin: 10px;
-  border-radius: 10px;
+/* Styling a tags and hover effect on "#second-page-btn" button */
 
+#second-page-btn button {
+  display: inline-block;
+  margin-top: 19px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #e9e9e9;
+  border-color: #b4e1ea;
+  text-transform: capitalize;
+  text-decoration: none;
+  width: 70%;
+}
+
+#second-page-btn button a {
+  color: #000;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+#second-page-btn button:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 16px;
 }

@@ -154,6 +154,8 @@ searchEventsByCity()
 button.addEventListener("click", function (event) {
   event.preventDefault();
   searchEventsByDefaultCity();
+  const hidePage = document.querySelector(".second-page")
+  hidePage.style.display = "none"
 });
 const seeMoreBtn = document.querySelectorAll(".btn");
 
